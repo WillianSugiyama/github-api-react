@@ -1,4 +1,5 @@
 import React from "react";
+import User from "./user";
 
 const List = (props) => {
   const { githubUsers } = props;
@@ -15,7 +16,11 @@ const List = (props) => {
     <div className="list">
       <h2> Github Users! </h2>
       {githubUsers.map((user, index) => {
-        return <div key={index}>{user.login}</div>;
+        return (
+          <div key={index}>
+            <User info={user} />
+          </div>
+        );
       })}
     </div>
   );
