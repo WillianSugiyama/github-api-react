@@ -6,6 +6,7 @@ function App() {
   const [appState, setAppState] = useState({
     loading: false,
     githubUsers: null,
+    githubUsersRemoved: null,
   });
   const paginationNumber = 10;
 
@@ -17,7 +18,7 @@ function App() {
     fetch(apiUrl)
       .then((res) => res.json())
       .then((githubUsers) => {
-        setAppState({ loading: false, githubUsers });
+        setAppState({ loading: false, githubUsers, githubUsersRemoved: [] });
       });
   }, [setAppState]);
 
@@ -26,6 +27,7 @@ function App() {
       <ListLoading
         isLoading={appState.loading}
         githubUsers={appState.githubUsers}
+        githubUsersRemoved={appState.githubUsersRemoved}
         setAppState={setAppState}
       />
     </div>
